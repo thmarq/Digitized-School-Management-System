@@ -34,12 +34,12 @@ export class StudentsController {
     }
   }
 
-  @Post()
+  @Post('add-parentFeedback')
   async addParentFeedBack(
     @Body() ParentFeedbackDto: ParentFeedbackDto,
     @Param('id') id: string,
     @TokenUser() user: any) {
-    let resp = await this.studentsService.updateStudentFeedback(+id, ParentFeedbackDto)
+    let resp = await this.studentsService.updateStudentFeedback(id, ParentFeedbackDto)
       .catch(e => {
         switch (e.message) {
           default:
@@ -51,9 +51,10 @@ export class StudentsController {
       data: resp
     }
   }
-  @Post()
-  async createStudent(@Body() createStudentDto: CreateStudentDto,
-    @TokenUser() user: any) {
+  @Post('/add-student')
+  async createStudent(@Body() createStudentDto: CreateStudentDto,) {
+    console.log(createStudentDto);
+
     let resp = await this.studentsService.createStudent(createStudentDto)
       .catch(e => {
         switch (e.message) {

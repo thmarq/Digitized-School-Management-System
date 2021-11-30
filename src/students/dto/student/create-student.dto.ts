@@ -8,6 +8,7 @@ export class CreateStudentDto {
   name: string;
 
   @ApiProperty()
+  @IsString()
   parentName: string;
 
   @ApiProperty()
@@ -15,12 +16,13 @@ export class CreateStudentDto {
   dob: string;
 
   @ApiProperty()
+  @IsString()
   address: string;
 
   @ApiPropertyOptional()
   @IsString()
-  @IsOptional()
-  @IsEmpty()
+  // @IsOptional()
+  // @IsEmpty()
   alternativeAddress?: string;
 
   @ApiProperty()
@@ -30,7 +32,7 @@ export class CreateStudentDto {
   @ApiPropertyOptional()
   @IsString()
   @IsOptional()
-  @IsEmpty()
+  // @IsEmpty()
   alternativeMobile?: string;
 }
 

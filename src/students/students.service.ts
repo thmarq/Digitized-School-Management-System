@@ -11,7 +11,7 @@ export class StudentsService {
     private readonly repos: RepositoryCollection
   ) { }
 
-  async createStudent(createStudentDto: CreateStudentDto) {
+  async createStudent(createStudentDto: any) {
     return await this.repos.studentModel.create(createStudentDto);
   }
 
@@ -19,8 +19,8 @@ export class StudentsService {
     return await this.repos.studentFeedbackModel.create(CreateFeedbackDto);
   }
 
-  async updateStudentFeedback(id: number, updateStudentDto: any) {
-    return await this.repos.studentModel.findByIdAndUpdate(id, updateStudentDto, { new: true })
+  async updateStudentFeedback(id: string, updateStudentDto: any) {
+    return await this.repos.studentFeedbackModel.findByIdAndUpdate(id, updateStudentDto, { new: true })
   }
 
 
