@@ -5,6 +5,10 @@ export class ParentFeedbackDto {
 
   @ApiProperty()
   @IsString()
+  feedbackId: string;
+
+  @ApiProperty()
+  @IsString()
   studentId: string;
 
   // @ApiProperty()

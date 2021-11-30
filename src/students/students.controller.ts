@@ -37,9 +37,9 @@ export class StudentsController {
   @Post('add-parentFeedback')
   async addParentFeedBack(
     @Body() ParentFeedbackDto: ParentFeedbackDto,
-    @Param('id') id: string,
+    // @Param('id') id: string,
     @TokenUser() user: any) {
-    let resp = await this.studentsService.updateStudentFeedback(id, ParentFeedbackDto)
+    let resp = await this.studentsService.updateStudentFeedback(ParentFeedbackDto.feedbackId, ParentFeedbackDto)
       .catch(e => {
         switch (e.message) {
           default:

@@ -42,7 +42,7 @@ export class UsersService {
 
     let staff = await this.repos.userModel.findOne({ accountType: "PARENT", userName: LogInParentDto.userName })
     if (!staff) throw new Error('User doesnt exist')
-    const payload = LogInStaffDto
+    const payload = LogInParentDto
     const accessToken = await this.jwtService.sign(payload)
     console.log("access token is ____", accessToken);
 
