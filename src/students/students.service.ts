@@ -20,7 +20,9 @@ export class StudentsService {
   }
 
   async updateStudentFeedback(id: string, updateStudentDto: any) {
-    return await this.repos.studentFeedbackModel.findByIdAndUpdate(id, updateStudentDto, { new: true })
+    let resp = await this.repos.studentFeedbackModel.findByIdAndUpdate(id, updateStudentDto, { new: true })
+
+    return resp ;
   }
 
 
